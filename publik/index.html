@@ -1,1 +1,439 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesona Tuban - Bento Neubrutalism & Custom Embed Maps</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        neoYellow: '#FACC15',
+                        neoPink: '#F43F5E',
+                        neoBlue: '#38BDF8',
+                        neoGreen: '#4ADE80',
+                        neoDark: '#09090B',
+                    },
+                    boxShadow: {
+                        'neubrutal': '4px 4px 0px #09090B',
+                        'neubrutal-lg': '6px 6px 0px #09090B',
+                        'neubrutal-sm': '2px 2px 0px #09090B',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS Terpisah -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="page-body" class="theme-gradient-1 text-neoDark font-sans transition-colors duration-500">
 
+    <!-- NAVBAR RESPONSIF -->
+    <nav class="bg-neoDark text-white sticky top-0 z-50 border-b-4 border-neoDark shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-neoYellow text-neoDark p-2.5 font-extrabold border-2 border-neoDark shadow-neubrutal-sm">
+                        <i class="fa-solid fa-water text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold tracking-wider uppercase text-white">Pesona Tuban</span>
+                        <p class="text-xs text-neoYellow font-semibold">Bento & Neubrutalism</p>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-6 font-bold text-sm">
+                    <a href="#beranda" class="hover:text-neoYellow transition">Beranda</a>
+                    <a href="#bento-destinasi" class="hover:text-neoYellow transition">Bento Destinasi</a>
+                    <a href="#informasi" class="hover:text-neoYellow transition">Tiket & Jam</a>
+                    <a href="#audio-guide" class="hover:text-neoYellow transition">Audio Guide</a>
+                    <a href="#saran" class="hover:text-neoYellow transition">Buku Tamu</a>
+                    
+                    <!-- Tombol Ganti Tema -->
+                    <button onclick="gantiTema()" class="bg-neoPink text-white px-3 py-1.5 text-xs font-extrabold border-2 border-neoDark shadow-neubrutal-sm hover:translate-x-0.5 hover:translate-y-0.5 transition">
+                        <i class="fa-solid fa-palette mr-1"></i> Ganti Tema
+                    </button>
+                </div>
+
+                <div class="md:hidden flex items-center gap-2">
+                    <button onclick="gantiTema()" class="bg-neoPink text-white p-2 border-2 border-neoDark shadow-neubrutal-sm text-xs font-bold">
+                        <i class="fa-solid fa-palette"></i>
+                    </button>
+                    <button id="menu-btn" class="bg-neoYellow text-neoDark p-2 border-2 border-neoDark shadow-neubrutal-sm focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-neoDark border-t-2 border-slate-700 px-6 py-4 space-y-3 font-bold">
+            <a href="#beranda" class="block py-1 hover:text-neoYellow">Beranda</a>
+            <a href="#bento-destinasi" class="block py-1 hover:text-neoYellow">Bento Destinasi</a>
+            <a href="#informasi" class="block py-1 hover:text-neoYellow">Tiket & Jam</a>
+            <a href="#audio-guide" class="block py-1 hover:text-neoYellow">Audio Guide</a>
+            <a href="#saran" class="block py-1 hover:text-neoYellow">Buku Tamu</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="beranda" class="py-24 px-4 border-b-4 border-neoDark text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <span class="bg-white text-neoDark text-xs font-extrabold px-4 py-1.5 border-2 border-neoDark shadow-neubrutal-sm uppercase tracking-widest inline-block mb-6">
+                Eksplorasi Bumi Wali Tuban
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 uppercase text-neoDark drop-shadow-sm">
+                Direktori Wisata <span class="bg-neoPink text-white px-2 border-2 border-neoDark shadow-neubrutal">Bahari & Budaya</span>
+            </h1>
+            <p class="text-base sm:text-lg font-bold text-slate-800 max-w-2xl mx-auto mb-8 bg-white/60 backdrop-blur-sm p-4 border-2 border-neoDark shadow-neubrutal-sm">
+                Jelajahi keindahan pantai bahari eksotis, cagar budaya, serta situs religi di Kabupaten Tuban dengan layout Bento Grid modern.
+            </p>
+        </div>
+    </header>
+
+    <!-- BENTO GRID DESTINASI WISATA -->
+    <section id="bento-destinasi" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="mb-12">
+            <h2 class="text-3xl font-extrabold uppercase tracking-tight text-neoDark mb-2">Bento Destinasi Pilihan</h2>
+            <p class="text-slate-800 font-bold text-sm">Museum Kambang Putih, Pantai Remen, Pantai Boom, Kelenteng Kwan Sing Bio, dan Makam Sunan Bonang.</p>
+        </div>
+
+        <!-- Bento Grid Layout Container -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Bento Box 1: Museum Kambang Putih -->
+            <div class="md:col-span-2 bg-white border-4 border-neoDark shadow-neubrutal-lg p-6 flex flex-col justify-between transition hover:-translate-y-1">
+                <div>
+                    <div class="relative h-64 sm:h-80 border-2 border-neoDark mb-6 overflow-hidden bg-slate-100">
+                        <img src="gdngtbn.jpg" alt="Museum Kambang Putih Tuban" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-neoBlue text-neoDark text-xs font-extrabold px-3 py-1 border-2 border-neoDark shadow-neubrutal-sm uppercase">Cagar Budaya</span>
+                    </div>
+                    <h3 class="text-2xl font-extrabold text-neoDark mb-2 uppercase">Museum Kambang Putih Tuban</h3>
+                    <p class="text-slate-700 text-sm font-semibold mb-6 leading-relaxed">
+                        Pusat penyimpanan benda bersejarah peninggalan masa prasejarah, koleksi keramik kuno, hingga artefak kolonial di Kabupaten Tuban[cite: 2].
+                    </p>
+                </div>
+                <button onclick="bukaModalMapsMuseum()" class="bg-neoYellow text-neoDark font-extrabold py-3 px-6 border-2 border-neoDark shadow-neubrutal text-sm text-center hover:bg-yellow-400 transition">
+                    <i class="fa-solid fa-map-location-dot mr-2"></i> Buka Peta Museum
+                </button>
+            </div>
+
+            <!-- Bento Box 2: Pantai Remen -->
+            <div class="bg-white border-4 border-neoDark shadow-neubrutal-lg p-6 flex flex-col justify-between transition hover:-translate-y-1">
+                <div>
+                    <div class="relative h-56 border-2 border-neoDark mb-6 overflow-hidden bg-slate-100">
+                        <img src="pantai.jpg" alt="Pantai Remen Tuban" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-neoGreen text-neoDark text-xs font-extrabold px-3 py-1 border-2 border-neoDark shadow-neubrutal-sm uppercase">Wisata Bahari</span>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-neoDark mb-2 uppercase">Pantai Remen Tuban</h3>
+                    <p class="text-slate-700 text-sm font-semibold mb-6">
+                        Pantai berpasir putih bersih dengan pemandangan laut biru yang sangat indah dan asri di Kabupaten Tuban.
+                    </p>
+                </div>
+                <button onclick="bukaModalMapsPantaiRemen()" class="bg-neoYellow text-neoDark font-extrabold py-3 px-6 border-2 border-neoDark shadow-neubrutal text-sm text-center hover:bg-yellow-400 transition">
+                    <i class="fa-solid fa-map-location-dot mr-2"></i> Buka Peta Pantai Remen
+                </button>
+            </div>
+
+            <!-- Bento Box 3: Pantai Boom Tuban -->
+            <div class="bg-white border-4 border-neoDark shadow-neubrutal-lg p-6 flex flex-col justify-between transition hover:-translate-y-1">
+                <div>
+                    <div class="relative h-56 border-2 border-neoDark mb-6 overflow-hidden bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Pantai Boom Tuban" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-neoGreen text-neoDark text-xs font-extrabold px-3 py-1 border-2 border-neoDark shadow-neubrutal-sm uppercase">Wisata Bahari</span>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-neoDark mb-2 uppercase">Pantai Boom Tuban</h3>
+                    <p class="text-slate-700 text-sm font-semibold mb-6">
+                        Pelabuhan kuno bersejarah era Majapahit yang kini menjadi destinasi wisata pantai ikonik dengan jembatan menjorok ke laut.
+                    </p>
+                </div>
+                <button onclick="bukaModalMapsPantaiBoom()" class="bg-neoYellow text-neoDark font-extrabold py-3 px-6 border-2 border-neoDark shadow-neubrutal text-sm text-center hover:bg-yellow-400 transition">
+                    <i class="fa-solid fa-map-location-dot mr-2"></i> Buka Peta Pantai Boom
+                </button>
+            </div>
+
+            <!-- Bento Box 4: Kelenteng Kwan Sing Bio -->
+            <div class="bg-white border-4 border-neoDark shadow-neubrutal-lg p-6 flex flex-col justify-between transition hover:-translate-y-1">
+                <div>
+                    <div class="relative h-56 border-2 border-neoDark mb-6 overflow-hidden bg-slate-100">
+                        <img src="klnt.jpg" alt="Kelenteng Kwan Sing Bio" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-neoPink text-white text-xs font-extrabold px-3 py-1 border-2 border-neoDark shadow-neubrutal-sm uppercase">Wisata Religi</span>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-neoDark mb-2 uppercase">Kelenteng Kwan Sing Bio</h3>
+                    <p class="text-slate-700 text-sm font-semibold mb-6">
+                        Kelenteng megah terbesar di Asia Tenggara yang terletak langsung di tepi laut Tuban[cite: 3].
+                    </p>
+                </div>
+                <button onclick="bukaModalMapsKlenteng()" class="bg-neoYellow text-neoDark font-extrabold py-3 px-6 border-2 border-neoDark shadow-neubrutal text-sm text-center hover:bg-yellow-400 transition">
+                    <i class="fa-solid fa-map-location-dot mr-2"></i> Buka Peta Kelenteng
+                </button>
+            </div>
+
+            <!-- Bento Box 5: Makam Sunan Bonang -->
+            <div class="md:col-span-2 bg-white border-4 border-neoDark shadow-neubrutal-lg p-6 flex flex-col justify-between transition hover:-translate-y-1">
+                <div>
+                    <div class="relative h-64 sm:h-80 border-2 border-neoDark mb-6 overflow-hidden bg-slate-100">
+                        <img src="snb.jpg" alt="Makam Sunan Bonang" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-neoYellow text-neoDark text-xs font-extrabold px-3 py-1 border-2 border-neoDark shadow-neubrutal-sm uppercase">Cagar Budaya & Religi</span>
+                    </div>
+                    <h3 class="text-2xl font-extrabold text-neoDark mb-2 uppercase">Komplek Makam Sunan Bonang</h3>
+                    <p class="text-slate-700 text-sm font-semibold mb-6 leading-relaxed">
+                        Pusat ziarah wali songo tersohor di jantung Kota Tuban dengan arsitektur gerbang padureksan kuno bercorak khas pesisir[cite: 4].
+                    </p>
+                </div>
+                <button onclick="bukaModalMapsSunanBonang()" class="bg-neoYellow text-neoDark font-extrabold py-3 px-6 border-2 border-neoDark shadow-neubrutal text-sm text-center hover:bg-yellow-400 transition">
+                    <i class="fa-solid fa-map-location-dot mr-2"></i> Lihat Peta Spesifik Sunan Bonang
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TABEL INFORMASI TIKET & JAM BUKA -->
+    <section id="informasi" class="bg-white/80 backdrop-blur-md py-20 px-4 sm:px-6 lg:px-8 border-y-4 border-neoDark">
+        <div class="max-w-5xl mx-auto">
+            <div class="mb-8">
+                <h2 class="text-3xl font-extrabold uppercase text-neoDark mb-2">Estimasi Tiket & Jam Operasional</h2>
+                <p class="text-slate-700 font-semibold text-sm">Informasi praktis kunjungan destinasi wisata Tuban.</p>
+            </div>
+
+            <div class="bg-white border-4 border-neoDark shadow-neubrutal-lg overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-neoDark text-white text-sm uppercase">
+                                <th class="py-4 px-6 font-extrabold border-b-2 border-neoDark">Nama Destinasi</th>
+                                <th class="py-4 px-6 font-extrabold border-b-2 border-neoDark">Kategori</th>
+                                <th class="py-4 px-6 font-extrabold border-b-2 border-neoDark">Jam Buka</th>
+                                <th class="py-4 px-6 font-extrabold border-b-2 border-neoDark">Tiket Masuk</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y-2 divide-neoDark text-sm font-semibold text-slate-800">
+                            <tr class="hover:bg-yellow-50">
+                                <td class="py-4 px-6 font-extrabold">Museum Kambang Putih</td>
+                                <td class="py-4 px-6">Cagar Budaya</td>
+                                <td class="py-4 px-6">08.00 - 15.00 WIB</td>
+                                <td class="py-4 px-6 text-emerald-700 font-extrabold">Rp 3.000</td>
+                            </tr>
+                            <tr class="hover:bg-yellow-50">
+                                <td class="py-4 px-6 font-extrabold">Pantai Remen</td>
+                                <td class="py-4 px-6">Wisata Bahari</td>
+                                <td class="py-4 px-6">07.00 - 18.00 WIB</td>
+                                <td class="py-4 px-6 text-emerald-700 font-extrabold">Rp 10.000</td>
+                            </tr>
+                            <tr class="hover:bg-yellow-50">
+                                <td class="py-4 px-6 font-extrabold">Pantai Boom Tuban</td>
+                                <td class="py-4 px-6">Wisata Bahari</td>
+                                <td class="py-4 px-6">06.00 - 21.00 WIB</td>
+                                <td class="py-4 px-6 text-emerald-700 font-extrabold">Rp 5.000</td>
+                            </tr>
+                            <tr class="hover:bg-yellow-50">
+                                <td class="py-4 px-6 font-extrabold">Kelenteng Kwan Sing Bio</td>
+                                <td class="py-4 px-6">Religi / Budaya</td>
+                                <td class="py-4 px-6">07.00 - 18.00 WIB</td>
+                                <td class="py-4 px-6 text-emerald-700 font-extrabold">Gratis (Donasi)</td>
+                            </tr>
+                            <tr class="hover:bg-yellow-50">
+                                <td class="py-4 px-6 font-extrabold">Makam Sunan Bonang</td>
+                                <td class="py-4 px-6">Religi & Budaya</td>
+                                <td class="py-4 px-6">24 Jam</td>
+                                <td class="py-4 px-6 text-emerald-700 font-extrabold">Gratis (Umum)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AUDIO GUIDE (MENGGUNAKAN AUDIO LATAR YANG DISEDIAKAN) -->
+    <section id="audio-guide" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="bg-neoPink text-white border-4 border-neoDark shadow-neubrutal-lg p-8 sm:p-10 relative">
+            <span class="bg-neoYellow text-neoDark text-xs font-extrabold px-3 py-1 border-2 border-neoDark shadow-neubrutal-sm uppercase inline-block mb-4">
+                Audio Guide Interaktif
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold uppercase mb-2">Putar Audio Pemandu Wisata</h2>
+            <p class="text-white text-sm font-semibold mb-6">Dengarkan panduan audio latar yang mendampingi penjelajahan Anda.</p>
+
+            <!-- Elemen Audio Asli -->
+            <audio id="bg-audio" src="https://cdn.freesound.org/previews/613/613864_11861866-lq.mp3" preload="auto"></audio>
+
+            <div class="bg-white text-neoDark border-4 border-neoDark p-6 flex flex-col sm:flex-row items-center gap-6 shadow-neubrutal">
+                <button id="play-audio-btn" onclick="toggleAudio()" class="w-16 h-16 bg-neoYellow hover:bg-yellow-400 border-4 border-neoDark rounded-none flex items-center justify-center text-2xl shadow-neubrutal transition active:translate-x-1 active:translate-y-1 shrink-0">
+                    <i id="play-icon" class="fa-solid fa-play ml-1"></i>
+                </button>
+                <div class="flex-1 w-full text-center sm:text-left">
+                    <h4 class="font-extrabold text-lg uppercase">Audio Tur Pemandu Tuban</h4>
+                    <p id="audio-status" class="text-xs font-bold text-slate-600 mt-1">Status: Berhenti (Ketuk tombol untuk memutar)</p>
+                    
+                    <div class="w-full bg-slate-200 h-3 border-2 border-neoDark mt-3 overflow-hidden">
+                        <div id="audio-progress" class="bg-neoGreen h-full w-0 transition-all duration-150"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORM SARAN PENGUNJUNG -->
+    <section id="saran" class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="bg-white border-4 border-neoDark shadow-neubrutal-lg p-8 sm:p-12">
+            <h2 class="text-2xl sm:text-3xl font-extrabold uppercase text-neoDark mb-2">Buku Tamu & Saran</h2>
+            <p class="text-slate-700 text-sm font-semibold mb-6">Bagikan ulasan atau pesan Anda untuk kemajuan pariwisata Tuban.</p>
+
+            <form id="saran-form" onsubmit="kirimSaran(event)" class="space-y-5">
+                <div>
+                    <label class="block text-sm font-extrabold uppercase text-neoDark mb-2">Nama Lengkap</label>
+                    <input type="text" id="nama" required class="w-full px-4 py-3 border-2 border-neoDark shadow-neubrutal-sm focus:outline-none font-semibold text-sm bg-slate-50" placeholder="Nama Anda...">
+                </div>
+                <div>
+                    <label class="block text-sm font-extrabold uppercase text-neoDark mb-2">Pesan / Saran</label>
+                    <textarea id="pesan" rows="4" required class="w-full px-4 py-3 border-2 border-neoDark shadow-neubrutal-sm focus:outline-none font-semibold text-sm bg-slate-50" placeholder="Tulis ulasan Anda..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-neoBlue text-neoDark font-extrabold py-4 border-2 border-neoDark shadow-neubrutal uppercase text-sm hover:bg-sky-400 transition">
+                    Kirim Pesan <i class="fa-solid fa-paper-plane ml-2"></i>
+                </button>
+            </form>
+            <div id="notifikasi-sukses" class="hidden mt-6 p-4 bg-neoGreen text-neoDark border-2 border-neoDark font-extrabold text-center text-sm shadow-neubrutal-sm">
+                Terima kasih! Saran Anda berhasil terkirim.
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL GOOGLE MAPS -->
+    <div id="maps-modal" class="fixed inset-0 z-50 hidden bg-black/70 flex items-center justify-center p-4">
+        <div class="bg-white border-4 border-neoDark shadow-neubrutal-lg max-w-2xl w-full overflow-hidden relative">
+            <div class="flex justify-between items-center bg-neoDark text-white px-6 py-4 border-b-2 border-neoDark">
+                <h3 id="modal-title" class="font-extrabold uppercase text-lg">Peta Lokasi</h3>
+                <button onclick="tutupModalMaps()" class="text-neoYellow text-xl font-extrabold focus:outline-none">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <p id="modal-subtitle" class="text-sm font-extrabold text-slate-700 mb-4"></p>
+                <div id="modal-iframe-container" class="w-full h-80 border-2 border-neoDark overflow-hidden shadow-neubrutal-sm">
+                    <!-- Iframe akan diisi dinamis via JS -->
+                </div>
+            </div>
+            <div class="bg-slate-100 px-6 py-4 border-t-2 border-neoDark flex justify-end">
+                <button onclick="tutupModalMaps()" class="bg-slate-300 text-neoDark font-extrabold px-6 py-2 border-2 border-neoDark shadow-neubrutal-sm uppercase text-xs">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-neoDark text-white py-10 px-4 text-center border-t-4 border-neoDark font-bold text-sm">
+        <p>&copy; 2026 Direktori Wisata Bahari & Cagar Budaya Tuban - Gradient Neubrutalism Edition.</p>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Ganti Tema Gradasi
+        let currentTheme = 1;
+        function gantiTema() {
+            const body = document.getElementById('page-body');
+            body.classList.remove('theme-gradient-1', 'theme-gradient-2', 'theme-gradient-3');
+            currentTheme = currentTheme >= 3 ? 1 : currentTheme + 1;
+            body.classList.add(`theme-gradient-${currentTheme}`);
+        }
+
+        // Fungsi Membuka Peta Spesifik Berdasarkan Iframe yang Diberikan
+        function bukaModalMapsMuseum() {
+            bukaModalIframe("Museum Kambang Putih", '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9541975331003!2d112.06436040000001!3d-6.896082100000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd80041a4211d93%3A0xfcb7235fbf74b534!2sKambang%20Putih%20Museum!5e0!3m2!1sen!2sid!4v1792720855911!5m2!1sen!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>');
+        }
+
+        function bukaModalMapsPantaiRemen() {
+            bukaModalIframe("Pantai Remen Tuban", '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.0335588777293!2d111.9680784!3d-6.7657627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e77a5c3aff33615%3A0xcb3241f8ddf04c0f!2sPantai%20Remen%20Tuban!5e0!3m2!1sen!2sid!4v1792720792402!5m2!1sen!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>');
+        }
+
+        function bukaModalMapsPantaiBoom() {
+            bukaModalIframe("Pantai Boom Tuban", '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31687.76322540926!2d112.06563820000001!3d-6.894143599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e77bd5c7cb30649%3A0xf3e8b5197f28f56d!2sBoom%20Beach!5e0!3m2!1sen!2sid!4v1792720924728!5m2!1sen!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>');
+        }
+
+        function bukaModalMapsKlenteng() {
+            bukaModalIframe("Kelenteng Kwan Sing Bio", '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.039812448264!2d112.0509313!3d-6.885834799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e77bd5910000001%3A0x1c9c0f616818999c!2sKlenteng%20Kwan%20Sing%20Bio!5e0!3m2!1sen!2sid!4v1792720395353!5m2!1sen!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>');
+        }
+
+        function bukaModalMapsSunanBonang() {
+            bukaModalIframe("Komplek Makam Sunan Bonang", '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.965439556327!2d112.063327!3d-6.8947373999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e77bd59236e67f9%3A0xebd53c7d4261659f!2sTomb%20of%20Sunan%20Bonang!5e0!3m2!1sen!2sid!4v1792720060691!5m2!1sen!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>');
+        }
+
+        function bukaModalIframe(namaDestinasi, iframeHtml) {
+            const modal = document.getElementById('maps-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalSubtitle = document.getElementById('modal-subtitle');
+            const container = document.getElementById('modal-iframe-container');
+
+            modalTitle.textContent = namaDestinasi;
+            modalSubtitle.innerHTML = `<i class="fa-solid fa-location-dot text-neoPink mr-1"></i> Lokasi Resmi Google Maps`;
+            container.innerHTML = iframeHtml;
+
+            modal.classList.remove('hidden');
+        }
+
+        function tutupModalMaps() {
+            const modal = document.getElementById('maps-modal');
+            const container = document.getElementById('modal-iframe-container');
+            modal.classList.add('hidden');
+            container.innerHTML = ''; 
+        }
+
+        // Kontrol Audio Guide & Progress Bar
+        const audio = document.getElementById('bg-audio');
+        const playBtn = document.getElementById('play-audio-btn');
+        const playIcon = document.getElementById('play-icon');
+        const audioStatus = document.getElementById('audio-status');
+        const audioProgress = document.getElementById('audio-progress');
+
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+                playIcon.classList.remove('fa-play');
+                playIcon.classList.add('fa-pause');
+                audioStatus.textContent = "Status: Memutar Audio Pemandu...";
+            } else {
+                audio.pause();
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play');
+                audioStatus.textContent = "Status: Dijeda";
+            }
+        }
+
+        audio.addEventListener('timeupdate', () => {
+            if (audio.duration) {
+                const percent = (audio.currentTime / audio.duration) * 100;
+                audioProgress.style.width = percent + '%';
+            }
+        });
+
+        audio.addEventListener('ended', () => {
+            playIcon.classList.remove('fa-pause');
+            playIcon.classList.add('fa-play');
+            audioStatus.textContent = "Status: Selesai";
+            audioProgress.style.width = '0%';
+        });
+
+        function kirimSaran(event) {
+            event.preventDefault();
+            const notif = document.getElementById('notifikasi-sukses');
+            notif.classList.remove('hidden');
+            document.getElementById('saran-form').reset();
+
+            setTimeout(() => {
+                notif.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

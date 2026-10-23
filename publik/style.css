@@ -1,0 +1,42 @@
+/* Custom Global Styling - Neubrutalism, Bento Grid & Dynamic Gradients */
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    scroll-behavior: smooth;
+    color: #09090B;
+    min-height: 100vh;
+}
+
+/* Tema Gradasi 1: Kuning - Biru Cerah */
+.theme-gradient-1 {
+    background: linear-gradient(135deg, #FEF08A 0%, #BAE6FD 50%, #E2E8F0 100%);
+    background-attachment: fixed;
+}
+
+/* Tema Gradasi 2: Pink - Ungu Pastel */
+.theme-gradient-2 {
+    background: linear-gradient(135deg, #FECDD3 0%, #DDD6FE 50%, #F1F5F9 100%);
+    background-attachment: fixed;
+}
+
+/* Tema Gradasi 3: Hijau Mint - Toska */
+.theme-gradient-3 {
+    background: linear-gradient(135deg, #A7F3D0 0%, #99F6E4 50%, #F8FAFC 100%);
+    background-attachment: fixed;
+}
+
+/* Kustomisasi scrollbar modern */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F8FAFC;
+    border-left: 2px solid #09090B;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #09090B;
+    border: 2px solid #09090B;
+}
